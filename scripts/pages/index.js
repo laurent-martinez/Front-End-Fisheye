@@ -1,3 +1,9 @@
+import photographerFactory from "../factories/photographer.js"
+
+fetch("../../data/photographers.json")
+    .then((response) => response.json())
+    .then((data) => console.log(data.photographers.content))
+
 async function getPhotographers() {
     // Penser à remplacer par les données récupérées dans le json
     const photographers = [
