@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
-        <link href="sass/style.scss" rel="stylesheet" type="text/css" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
         <meta charset="utf-8" />
         <link rel="icon" type="image/png" href="assets/favicon.png" />
         <link
@@ -12,7 +12,7 @@
     </head>
     <body>
         <header>
-            <img src="assets/images/logo.png" class="logo" />
+            <img src="assets/images/logo.png" class="logo" alt="logo Fisheye" />
         </header>
         <main id="main">
             <div class="photograph-header">
@@ -25,14 +25,20 @@
             <div class="modal">
                 <header>
                     <h2>Contactez-moi</h2>
-                    <img src="assets/icons/close.svg" onclick="closeModal()" />
+                    <img
+                        src="assets/icons/close.svg"
+                        onclick="closeModal()"
+                        alt="icone croix"
+                    />
                 </header>
                 <form>
                     <div>
                         <label>Prénom</label>
                         <input />
                     </div>
-                    <button class="contact_button">Envoyer</button>
+                    <button type="submit" class="contact_button">
+                        Envoyer
+                    </button>
                 </form>
             </div>
         </div>

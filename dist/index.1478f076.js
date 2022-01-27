@@ -522,41 +522,19 @@ function hmrAcceptRun(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _photographerJs = require("../factories/photographer.js");
 var _photographerJsDefault = parcelHelpers.interopDefault(_photographerJs);
-fetch("../../data/photographers.json").then((response)=>response.json()
-).then((data)=>console.log(data.photographers.name)
-);
 async function getPhotographers() {
     // Penser à remplacer par les données récupérées dans le json
-    const photographers = [
-        {
-            name: "Ma data test",
-            id: 1,
-            city: "Paris",
-            country: "France",
-            tagline: "Ceci est ma data test",
-            price: 400,
-            portrait: "account.png"
-        },
-        {
-            name: "Autre data test",
-            id: 2,
-            city: "Londres",
-            country: "UK",
-            tagline: "Ceci est ma data test 2",
-            price: 500,
-            portrait: "account.png"
-        }, 
-    ];
+    let photographers = [];
+    await fetch("../../data/photographers.json").then((response)=>response.json()
+    ).then((data)=>{
+        photographers = data.photographers;
+    });
     // et bien retourner le tableau photographers seulement une fois
     return {
-        photographers: [
-            ...photographers,
-            ...photographers,
-            ...photographers
-        ]
+        photographers
     };
 }
-async function displayData(photographers) {
+function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
     photographers.forEach((photographer)=>{
         const photographerModel = _photographerJsDefault.default(photographer);
@@ -575,21 +553,34 @@ init();
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function photographerFactory(data) {
-    const { name , portrait  } = data;
+    const { name , city , country , portrait , tagline , price  } = data;
     const picture = `../../assets/photographers/${portrait}`;
     function getUserCardDOM() {
         const article = document.createElement("article");
         const img = document.createElement("img");
         img.setAttribute("src", picture);
         const h2 = document.createElement("h2");
+        const h4 = document.createElement("h4");
+        const p = document.createElement("p");
+        const span = document.createElement("span");
+        h4.textContent = `${city}, ${country}`;
         h2.textContent = name;
+        p.textContent = tagline;
+        span.textContent = `${price}€/jour`;
         article.appendChild(img);
         article.appendChild(h2);
+        article.appendChild(h4);
+        article.appendChild(p);
+        article.appendChild(span);
         return article;
     }
     return {
         name,
         picture,
+        city,
+        country,
+        tagline,
+        price,
         getUserCardDOM
     };
 }

@@ -1,16 +1,5 @@
 import photographerFactory from "../factories/photographer.js"
 
-let userData = []
-const fetchUser = async () => {
-    await fetch("../../data/photographers.json")
-        .then((response) => response.json())
-        .then((data) => {
-            userData = data.photographers
-            console.log(userData)
-        })
-}
-fetchUser()
-
 async function getPhotographers() {
     // Penser à remplacer par les données récupérées dans le json
     let photographers = []
@@ -22,11 +11,11 @@ async function getPhotographers() {
 
     // et bien retourner le tableau photographers seulement une fois
     return {
-        photographers: [...photographers],
+        photographers,
     }
 }
 
-async function displayData(photographers) {
+function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section")
 
     photographers.forEach((photographer) => {
