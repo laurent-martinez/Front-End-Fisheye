@@ -1,27 +1,28 @@
 export default function photographerFactory(data) {
     const { name, city, country, portrait, tagline, price } = data
 
-    const picture = `../../assets/photographers/${portrait}`
+    const picture = `./../../assets/photographers/${portrait}`
 
     function getUserCardDOM() {
-        const article = document.createElement("article")
+        const a = document.createElement("a")
+        a.setAttribute("href", `http://127.0.0.1:5500/photographer.html`)
         const img = document.createElement("img")
         img.setAttribute("src", picture)
         img.setAttribute("alt", `${name} photo`)
         const h2 = document.createElement("h2")
         const h3 = document.createElement("h3")
         const h4 = document.createElement("h4")
-        const p = document.createElement("p")
+        const h5 = document.createElement("h5")
         h3.textContent = `${city}, ${country}`
         h2.textContent = name
         h4.textContent = tagline
-        p.textContent = `${price}€/jour`
-        article.appendChild(img)
-        article.appendChild(h2)
-        article.appendChild(h3)
-        article.appendChild(h4)
-        article.appendChild(p)
-        return article
+        h5.textContent = `${price}€/jour`
+        a.appendChild(img)
+        a.appendChild(h2)
+        a.appendChild(h3)
+        a.appendChild(h4)
+        a.appendChild(h5)
+        return a
     }
     return { name, picture, city, country, tagline, price, getUserCardDOM }
 }
