@@ -1,11 +1,11 @@
 export default function photographerFactory(data) {
     const { name, city, country, portrait, tagline, price } = data
 
-    const picture = `.../../assets/photographers/${portrait}`
+    const picture = `${location.href}assets/photographers/${portrait}`
 
     function getUserCardDOM() {
         const a = document.createElement("a")
-        a.setAttribute("href", `http://127.0.0.1:5500/photographer.html`)
+        a.setAttribute("href", `${location.href}photographer.html`)
         const img = document.createElement("img")
         img.setAttribute("src", picture)
         img.setAttribute("alt", `${name} photo`)
