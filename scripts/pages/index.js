@@ -1,9 +1,9 @@
-import photographerFactory from "../factories/photographer.js"
+import Photographer from "../factories/photographer.js"
 
 async function getPhotographers() {
     // Penser à remplacer par les données récupérées dans le json
     let photographers = []
-    await fetch(`${location.href}data/photographers.json`)
+    await fetch(`data/photographers.json`)
         .then((response) => response.json())
         .then((data) => {
             photographers = data.photographers
@@ -19,7 +19,7 @@ function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section")
 
     photographers.forEach((photographer) => {
-        const photographerModel = photographerFactory(photographer)
+        const photographerModel = new Photographer(photographer)
         const userCardDOM = photographerModel.getUserCardDOM()
         photographersSection.appendChild(userCardDOM)
     })
