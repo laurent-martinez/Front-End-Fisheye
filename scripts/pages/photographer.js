@@ -1,5 +1,6 @@
 let photographer
 let mediasArray = []
+let likesArray = []
 //Mettre le code JavaScript lié à la page photographer.html
 async function getPhotographer(id) {
     // Penser à remplacer par les données récupérées dans le json
@@ -51,6 +52,7 @@ async function getMedias(photographerId) {
                 .map((m) => MediaFactory(m))
             displayData(medias)
             mediaFilter(medias)
+            likeSum()
         })
 }
 
@@ -58,7 +60,6 @@ getMedias(photographerId)
 
 function displayData(medias) {
     const photographMedias = document.querySelector(".photograph-medias")
-
     medias.forEach((media) => {
         const mediaModel = MediaFactory(media)
         const mediaCardDOM = mediaModel.getMediaCardDom()
@@ -81,7 +82,7 @@ function mediaFilter(medias) {
                 medias.sort((a, b) => b.likes - a.likes)
                 break
             case "date":
-                medias.sort((a, b) => new Date(a.likes) - new Date(b.likes))
+                medias.sort((a, b) => new Date(a.date) - new Date(b.date))
 
                 break
             case "title":
@@ -100,4 +101,18 @@ function mediaFilter(medias) {
         displayData(medias)
     })
 }
+
+function likeSum() {
+    const likeIcon = document.querySelectorAll(".heart")
+
+    likeIcon.forEach((heart) => {
+        heart.addEventListener("click", () => {
+            let likesNumber = parseInt(heart.previousElementSibling.innerHTML)
+            likesNumber++
+            heart.previousElementSibling.innerHTML = likesNumber
+            console.log("click")
+        })
+    })
+}
+
 console.log(mediasArray)

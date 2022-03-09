@@ -6,6 +6,7 @@ class Media {
         this.likes = data.likes
         this.price = data.price
         this.date = data.date
+        this.media = data.media
     }
     getMediaCardDom() {}
     getLightboxDom() {}
@@ -15,6 +16,7 @@ class Videos extends Media {
     constructor(data) {
         super({ ...data })
         this.video = data.video
+        this.media = this.video
     }
 
     getMediaCardDom() {
@@ -48,6 +50,7 @@ class Videos extends Media {
 
         return a
     }
+
     getLightboxDom() {
         return ` <video controls id="imgBox" src="./assets/photographers/${this.video}" 
         aria-label="${this.title}"/>
@@ -59,6 +62,7 @@ class Images extends Media {
     constructor(data) {
         super({ ...data })
         this.image = data.image
+        this.media = this.image
     }
 
     getMediaCardDom() {
@@ -99,6 +103,7 @@ class Images extends Media {
 }
 
 function MediaFactory(media) {
+    console.log(media)
     if ("video" in media) {
         return new Videos(media)
     } else {

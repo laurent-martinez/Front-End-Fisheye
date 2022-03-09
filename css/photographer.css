@@ -206,6 +206,8 @@ form input {
     height: 100%;
     background-color: #eee8e8;
     z-index: 10;
+    overflow: hidden;
+    margin: 0;
 }
 .lightbox.show {
     display: block;
@@ -251,18 +253,25 @@ form input {
     opacity: 1;
 }
 .lightbox__container {
-    width: 70%;
-    height: 900px;
+    width: 80%;
+    height: 100%;
     margin: 0 auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.lightbox__container img {
+.lightbox__container img,
+.lightbox__container video {
     display: flex;
     justify-content: center;
     object-fit: cover;
-    height: 80%;
-    width: 70%;
-    align-items: center;
+    height: 85%;
+    width: 80%;
+}
+.lightbox__container p {
+    font-weight: 400;
+    font-size: 24px;
+    text-align: left;
+    color: #901c1c;
 }
