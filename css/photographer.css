@@ -113,6 +113,7 @@ form input {
     flex-wrap: wrap;
     padding: 50px;
 }
+
 .photograph-medias img {
     width: 450px;
     height: 400px;
@@ -125,6 +126,10 @@ form input {
     object-fit: cover;
     border-radius: 5px;
 }
+.photograph-medias img:hover,
+.photograph-medias video:hover {
+    cursor: pointer;
+}
 .photograph-info {
     display: flex;
     align-items: center;
@@ -136,16 +141,23 @@ form input {
 }
 .photograph-likes {
     display: flex;
+    padding: 10px;
 }
 .photograph-info h2 {
     font-weight: 400;
 }
-.photograph-likes p {
+.likesNumberin {
     font-weight: 500;
+    font-size: 24px;
+    margin-right: 10px;
 }
-.photograph-likes i {
-    font-weight: 500;
-    display: inline-block;
+.heart {
+    background: url(/assets/icons/heart.svg) center center / 100% 100%;
+    border: none;
+    width: 24px;
+    height: 35px;
+    align-self: center;
+    cursor: pointer;
 }
 
 #selectMedias {
@@ -186,25 +198,57 @@ form input {
 }
 
 .lightbox {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #e5e5e5;
-    z-index: -10;
+    background-color: #eee8e8;
+    z-index: 10;
 }
-
+.lightbox.show {
+    display: block;
+}
 .lightbox__prev,
 .lightbox__next {
-    color: #000;
-    display: inline-block;
-    width: 16px;
-    height: 28px;
+    border: none;
+    position: fixed;
+    top: 50%;
+    background: url(/assets/icons/arrow.svg) center center no-repeat;
+    width: 48px;
+    height: 38px;
     margin-top: -14px;
-    z-index: -10;
+    z-index: 11;
     text-indent: -3000px;
     cursor: pointer;
+    opacity: 0.5;
+}
+.lightbox__prev {
+    transform: rotate(180deg);
+    left: 50px;
+}
+.lightbox__next {
+    right: 50px;
+}
+.lightbox__prev:hover,
+.lightbox__next:hover {
+    opacity: 1;
+}
+.lightbox__close {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    width: 54px;
+    height: 54px;
+    background: url(/assets/icons/close.svg) center center no-repeat;
+    border: none;
+    text-indent: -3000px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+.lightbox__close:hover {
+    opacity: 1;
 }
 .lightbox__container {
     width: 70%;

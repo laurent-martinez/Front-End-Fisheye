@@ -8,11 +8,9 @@ async function getPhotographer(id) {
         .then((response) => response.json())
         .then((data) => {
             photographer = data.photographers.find((e) => e.id == id)
-            console.log(photographer)
             if (photographer) {
                 const photographerHeader =
                     document.querySelector(".photograph-header")
-                console.log(photographerHeader)
 
                 const photographerHeaderHtml = `<div><h1 id="photographer--name">${photographer.name}</h1>
                 <div class="photographer--info">
@@ -48,12 +46,11 @@ async function getMedias(photographerId) {
     await fetch(`data/photographers.json`)
         .then((response) => response.json())
         .then((data) => {
-            let medias = data.media.filter(
-                (e) => e.photographerId == photographerId
-            )
+            let medias = data.media
+                .filter((e) => e.photographerId == photographerId)
+                .map((m) => MediaFactory(m))
             displayData(medias)
             mediaFilter(medias)
-            console.log(medias)
         })
 }
 
@@ -67,7 +64,15 @@ function displayData(medias) {
         const mediaCardDOM = mediaModel.getMediaCardDom()
         photographMedias.appendChild(mediaCardDOM)
     })
+    let lightbox = new Lightbox(medias)
+    let links = document.querySelectorAll(".mediaLink")
+    links.forEach((link) => {
+        link.addEventListener("click", (e) => {
+            lightbox.show(e.currentTarget.dataset.id)
+        })
+    })
 }
+
 function mediaFilter(medias) {
     const select = document.querySelector("#filterMedias")
     select.addEventListener("change", (e) => {
@@ -89,9 +94,10 @@ function mediaFilter(medias) {
                 console.log("error")
                 break
         }
-    })
-    const photographMedias = document.querySelector(".photograph-medias")
-    photographMedias.innerHTML = ""
+        const photographMedias = document.querySelector(".photograph-medias")
+        photographMedias.innerHTML = ""
 
-    displayData(medias)
+        displayData(medias)
+    })
 }
+console.log(mediasArray)
