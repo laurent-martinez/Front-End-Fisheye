@@ -21,7 +21,7 @@ async function getPhotographer(id) {
                 <button class="contact_button"id="center" >
                     Contactez-moi
                     </button >
-                    <img id="photographer--pic"src="assets/photographers/${photographer.portrait}" alt="">
+                    <img id="photographer--pic"src="./assets/photographers/${photographer.portrait}" alt="">
                 `
 
                 photographerHeader.innerHTML = photographerHeaderHtml

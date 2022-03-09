@@ -20,7 +20,7 @@ class Videos extends Media {
     getMediaCardDom() {
         // Création d'un nouvel élément a dans la page
         const a = document.createElement("a")
-        const videos = `assets/photographers/${this.video}`
+        const videos = `./assets/photographers/${this.video}`
         const video = document.createElement("video")
         const source = document.createElement("source")
         video.classList.add("mediaLink")
@@ -49,7 +49,7 @@ class Videos extends Media {
         return a
     }
     getLightboxDom() {
-        return ` <video controls id="imgBox" src="assets/photographers/${this.video}" 
+        return ` <video controls id="imgBox" src="./assets/photographers/${this.video}" 
         aria-label="${this.title}"/>
         <p class="titleCurrentImg" tabindex="0" aria-label="titre du média">${this.title}</p>`
     }
@@ -64,7 +64,7 @@ class Images extends Media {
     getMediaCardDom() {
         // Création d'un nouvel élément a dans la page
         const a = document.createElement("a")
-        const images = `assets/photographers/${this.image}`
+        const images = `./assets/photographers/${this.image}`
         const image = document.createElement("img")
         image.setAttribute("src", images)
         image.classList.add("mediaLink")
@@ -92,7 +92,7 @@ class Images extends Media {
     }
     getLightboxDom() {
         return `
-        <img id="imgBox" src="assets/photographers/${this.image}" 
+        <img id="imgBox" src="./assets/photographers/${this.image}" 
         aria-label="${this.title}"/>
         <p class="titleCurrentImg" tabindex="0" aria-label="titre du média">${this.title}</p>`
     }
