@@ -19,10 +19,13 @@ async function getPhotographer(id) {
                       <h3>${photographer.tagline}</h3>
                 </div>
                 </div>
+                <div>
                 <button class="contact_button"id="center" >
                     Contactez-moi
                     </button >
-                    <img id="photographer--pic"src="./assets/photographers/${photographer.portrait}" alt="">
+                    </div>
+                    <div>
+                    <img id="photographer--pic"src="./assets/photographers/${photographer.portrait}" alt=""></div>
                 `
 
                 photographerHeader.innerHTML = photographerHeaderHtml
@@ -52,7 +55,7 @@ async function getMedias(photographerId) {
                 .map((m) => MediaFactory(m))
             displayData(medias)
             mediaFilter(medias)
-            likeSum()
+            likeSum(medias)
         })
 }
 
@@ -102,17 +105,20 @@ function mediaFilter(medias) {
     })
 }
 
-function likeSum() {
+function likeSum(medias) {
     const likeIcon = document.querySelectorAll(".heart")
 
     likeIcon.forEach((heart) => {
-        heart.addEventListener("click", () => {
-            let likesNumber = parseInt(heart.previousElementSibling.innerHTML)
+        heart.addEventListener("click", (e) => {
+            let likesNumber = parseInt(heart.previousElementSibling.textContent)
             likesNumber++
-            heart.previousElementSibling.innerHTML = likesNumber
-            console.log("click")
+            heart.previousElementSibling.textContent = likesNumber
+            const media = medias.find((media) => {
+                media.id == e.target.dataset.id
+            })
+            console.log(media)
+            if (media) {
+            }
         })
     })
 }
-
-console.log(mediasArray)

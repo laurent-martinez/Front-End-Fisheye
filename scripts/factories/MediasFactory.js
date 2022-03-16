@@ -16,7 +16,6 @@ class Videos extends Media {
     constructor(data) {
         super({ ...data })
         this.video = data.video
-        this.media = this.video
     }
 
     getMediaCardDom() {
@@ -40,6 +39,7 @@ class Videos extends Media {
         likesNumber.setAttribute("class", "likesNumberin")
         const heart = document.createElement("button")
         heart.setAttribute("class", "heart")
+        heart.setAttribute("data-id", this.id)
         a.appendChild(video)
         video.appendChild(source)
         a.appendChild(info)
@@ -62,7 +62,6 @@ class Images extends Media {
     constructor(data) {
         super({ ...data })
         this.image = data.image
-        this.media = this.image
     }
 
     getMediaCardDom() {
@@ -84,6 +83,7 @@ class Images extends Media {
         likesNumber.setAttribute("class", "likesNumberin")
         const heart = document.createElement("button")
         heart.setAttribute("class", "heart")
+        heart.setAttribute("data-id", this.id)
 
         a.appendChild(image)
         a.appendChild(info)
@@ -103,7 +103,6 @@ class Images extends Media {
 }
 
 function MediaFactory(media) {
-    console.log(media)
     if ("video" in media) {
         return new Videos(media)
     } else {

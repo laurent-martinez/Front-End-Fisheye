@@ -4,6 +4,7 @@ body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
     font-size: 62.5%;
+    width: 100vw;
 }
 
 header {
@@ -81,4 +82,11 @@ h1 {
     font-style: italic;
     margin: 0;
     font-size: 14px;
+}
+
+@media only screen and (max-width: 1026px) {
+    .photographer_section {
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+    }
 }

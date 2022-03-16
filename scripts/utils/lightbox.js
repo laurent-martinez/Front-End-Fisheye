@@ -55,26 +55,9 @@ class Lightbox {
 
     display() {
         const container = document.querySelector(".lightbox__container")
-        /*
-        
-
         const containerModel = MediaFactory(this.currentMedia)
-
         const containerDom = containerModel.getLightboxDom()
-        container.appendChild(containerDom)
-
-        console.log(this.currentMedia)
-        */
-        if (this.currentMedia.video) {
-            container.innerHTML = ` <video controls id="imgBox" src="assets/photographers/${this.currentMedia.video}" 
-           aria-label="${this.currentMedia.title}"/>
-           <p class="titleCurrentImg" tabindex="0" aria-label="titre du média">${this.currentMedia.title}</p>`
-        } else {
-            container.innerHTML = `
-            <img id="imgBox" src="assets/photographers/${this.currentMedia.image}" 
-            aria-label="${this.currentMedia.title}"/>
-            <p class="titleCurrentImg" tabindex="0" aria-label="titre du média">${this.currentMedia.title}</p>`
-        }
+        container.innerHTML = containerDom
         document.querySelector(".lightbox").classList.add("show")
     }
 
