@@ -60,6 +60,7 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    z-index: 20;
 }
 
 .modal header {

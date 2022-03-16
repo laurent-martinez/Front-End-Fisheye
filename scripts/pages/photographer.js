@@ -20,12 +20,12 @@ async function getPhotographer(id) {
                 </div>
                 </div>
                 <div>
-                <button class="contact_button"id="center" >
+                <button class="contact_button" id="center" onclick="displayModal()" >
                     Contactez-moi
                     </button >
                     </div>
                     <div>
-                    <img id="photographer--pic"src="./assets/photographers/${photographer.portrait}" alt=""></div>
+                    <img id="photographer--pic"src="assets/photographers/${photographer.portrait}" alt=""></div>
                 `
 
                 photographerHeader.innerHTML = photographerHeaderHtml
@@ -115,10 +115,12 @@ function likeSum(medias) {
             heart.previousElementSibling.textContent = likesNumber
             const media = medias.find((media) => {
                 media.id == e.target.dataset.id
+                if (media) {
+                    console.log(media.likes)
+                    media.likes++
+                    console.log(media.likes)
+                }
             })
-            console.log(media)
-            if (media) {
-            }
         })
     })
 }
