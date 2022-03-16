@@ -292,8 +292,3 @@ footer {
     align-items: center;
     font-weight: 500;
 }
-@media only screen and (max-width: 1078px) {
-    .photograph-header {
-        margin: 0 auto;
-    }
-}

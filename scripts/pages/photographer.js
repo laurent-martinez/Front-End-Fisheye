@@ -28,7 +28,7 @@ async function getPhotographer(id) {
                     <img id="photographer--pic"src="assets/photographers/${photographer.portrait}" alt=""></div>
                     <footer>
                  <div>
-                        <span id="total_likes">0</span>
+                        <span id="likeCount">0</span>
                         <i class="fas fa-heart"></i>
                         </div>
                         <span class="total_prices">${photographer.price} € / jour</span>
@@ -63,7 +63,8 @@ async function getMedias(photographerId) {
                 .map((m) => MediaFactory(m))
             displayData(medias)
             mediaFilter(medias)
-            likeSum(medias)
+            likeInc(medias)
+            likeSum()
         })
 }
 
@@ -113,7 +114,7 @@ function mediaFilter(medias) {
     })
 }
 
-function likeSum(medias) {
+function likeInc(medias) {
     const likeIcon = document.querySelectorAll(".heart")
 
     likeIcon.forEach((heart) => {
@@ -121,14 +122,29 @@ function likeSum(medias) {
             let likesNumber = parseInt(heart.previousElementSibling.textContent)
             likesNumber++
             heart.previousElementSibling.textContent = likesNumber
-            const media = medias.find((media) => {
-                media.id == e.target.dataset.id
-                if (media) {
-                    console.log(media.likes)
-                    media.likes++
-                    console.log(media.likes)
-                }
-            })
+            likeSum()
+            const media = medias.find(
+                (media) => media.id == e.target.dataset.id
+            )
+            if (media) {
+                media.likes = likesNumber
+                console.log(media.likes)
+            }
         })
     })
+}
+
+function likeSum() {
+    const likeIcon = document.querySelectorAll(".heart")
+    const likeCount = document.querySelector("#likeCount")
+    console.log(likeCount)
+    let totalLikes = 0
+
+    likeIcon.forEach((heart) => {
+        const i = parseInt(heart.previousElementSibling.textContent)
+        totalLikes += i
+    })
+    if (likeCount) {
+        likeCount.textContent = totalLikes
+    }
 }
