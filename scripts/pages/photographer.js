@@ -26,6 +26,14 @@ async function getPhotographer(id) {
                     </div>
                     <div>
                     <img id="photographer--pic"src="assets/photographers/${photographer.portrait}" alt=""></div>
+                    <footer>
+                 <div>
+                        <span id="total_likes">0</span>
+                        <i class="fas fa-heart"></i>
+                        </div>
+                        <span class="total_prices">${photographer.price} € / jour</span>
+                 
+                </footer>
                 `
 
                 photographerHeader.innerHTML = photographerHeaderHtml

@@ -277,6 +277,21 @@ form input {
     text-align: left;
     color: #901c1c;
 }
+footer {
+    position: fixed;
+    bottom: 0;
+    right: 10px;
+    height: 60px;
+    width: 376px;
+    background-color: #db8876;
+    font-size: 24px;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 500;
+}
 @media only screen and (max-width: 1078px) {
     .photograph-header {
         margin: 0 auto;
