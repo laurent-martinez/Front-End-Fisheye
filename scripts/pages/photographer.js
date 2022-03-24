@@ -20,7 +20,7 @@ async function getPhotographer(id) {
                 </div>
                 </div>
                 <div>
-                <button class="contact_button" id="center" onclick="displayModal()" >
+                <button class="contact_button" onclick="displayModal()">
                     Contactez-moi
                     </button >
                     </div>
@@ -83,7 +83,13 @@ function displayData(medias) {
         link.addEventListener("click", (e) => {
             lightbox.show(e.currentTarget.dataset.id)
         })
+        link.addEventListener("keyup", (e) => {
+            if (e.key === "Enter") {
+                lightbox.show(e.currentTarget.dataset.id)
+            }
+        })
     })
+    likeInc(medias)
 }
 
 function mediaFilter(medias) {
@@ -109,7 +115,6 @@ function mediaFilter(medias) {
         }
         const photographMedias = document.querySelector(".photograph-medias")
         photographMedias.innerHTML = ""
-
         displayData(medias)
     })
 }

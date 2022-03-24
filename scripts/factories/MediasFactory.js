@@ -25,6 +25,7 @@ class Videos extends Media {
         const video = document.createElement("video")
         const source = document.createElement("source")
         video.classList.add("mediaLink")
+        video.setAttribute("tabindex", "0")
         video.setAttribute("data-id", this.id)
         source.setAttribute("src", videos)
         source.setAttribute("type", "video/mp4")
@@ -69,6 +70,7 @@ class Images extends Media {
         const a = document.createElement("a")
         const images = `./assets/photographers/${this.image}`
         const image = document.createElement("img")
+        image.setAttribute("tabindex", "0")
         image.setAttribute("src", images)
         image.classList.add("mediaLink")
         image.setAttribute("data-id", this.id)

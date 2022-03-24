@@ -1,5 +1,12 @@
 #contact_modal {
     display: none;
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    right: 0px;
+    z-index: 500;
+    padding: 5px;
+    overflow: hidden;
 }
 
 .photograph-header {
@@ -49,18 +56,22 @@
     white-space: nowrap;
     transform: translate(-50%, 50%);
 }
-
+.contact_button:hover {
+    background-color: #db8876;
+    color: black;
+}
 .modal {
     border-radius: 5px;
     background-color: #db8876;
-    width: 50%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 35px;
+    padding: 25px;
     margin: auto;
     z-index: 20;
+    overflow: hidden;
 }
 
 .modal header {
@@ -70,14 +81,25 @@
 
 .modal header img {
     cursor: pointer;
+    width: 42px;
+    height: 42px;
 }
 
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
     text-align: center;
+    margin-bottom: 10px;
 }
-
+#contact_modal > div > form > div:nth-child(1) > label {
+    margin-top: 50px;
+}
+.modal button {
+    transform: translate(0%, 0%);
+}
+.filter-white {
+    filter: brightness(0) invert(1);
+}
 form {
     display: flex;
     width: 100%;
@@ -99,11 +121,18 @@ form div {
 }
 
 form input {
-    width: 100%;
     height: 68px;
     border: none;
     border-radius: 5px;
+    width: 100%;
 }
+form textarea {
+    height: 204px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+}
+
 .photograph-medias {
     display: flex;
     justify-content: space-around;
@@ -167,23 +196,30 @@ form input {
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 170px;
+}
+#selectMedias option {
+    color: white;
 }
 #selectMedias label {
     margin-right: 25px;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
 }
 #selectMedias select {
     background: #901c1c
-        url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='24' height='24' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='white'/></g></svg>")
+        url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='20' height='20' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='white'/></g></svg>")
         no-repeat;
-    background-position: right 10px top 50%;
+    background-position: right 5px top 50%;
     color: #fafafa;
     font-size: 18px;
     font-weight: 700;
     width: 170px;
     height: 69px;
     padding: 1em;
+    margin: 10px;
     border-radius: 5px;
     border: 0;
     border: none;
@@ -193,10 +229,6 @@ form input {
     -moz-appearance: none;
     appearance: none;
     cursor: pointer;
-}
-
-#selectMedias option::after {
-    border: black solid 5px;
 }
 
 .lightbox {

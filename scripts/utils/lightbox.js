@@ -39,13 +39,28 @@ class Lightbox {
         nextImg.addEventListener("click", () => {
             this.next()
         })
+        document.addEventListener("keyup", (e) => {
+            if (e.key === "ArrowRight") {
+                this.next(e)
+            }
+        })
         const prevImg = document.querySelector(".lightbox__prev")
         prevImg.addEventListener("click", () => {
             this.prev()
         })
+        document.addEventListener("keyup", (e) => {
+            if (e.key === "ArrowLeft") {
+                this.prev(e)
+            }
+        })
         const closeBtn = document.querySelector(".lightbox__close")
         closeBtn.addEventListener("click", () => {
             this.close()
+        })
+        document.addEventListener("keyup", (e) => {
+            if (e.key === "Escape") {
+                this.close(e)
+            }
         })
     }
 

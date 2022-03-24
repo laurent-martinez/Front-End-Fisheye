@@ -41,13 +41,21 @@ export default class Photographer {
     getUserCardDOM() {
         // Création d'un nouvel élément a dans la page
         const a = document.createElement("a")
-
+        const link = document.createElement("div")
+        link.setAttribute("tabindex", "0")
+        link.setAttribute("aria-label", `${this.name}`)
+        link.classList.add("photographer-link")
         // J'écoute l'évènement click de l'élément a créé pour rediriger vers sa page individuelle
-        a.addEventListener("click", () => {
+        link.addEventListener("click", () => {
             window.location.href = `photographer.html?id=${this.id}`
         })
-
+        link.addEventListener("keyup", (e) => {
+            if (e.key === "Enter") {
+                window.location.href = `photographer.html?id=${this.id}`
+            }
+        })
         // Création de chaque élément qui récupère les données de  chaque photographe
+
         const picture = `../assets/photographers/${this.portrait}`
         const img = document.createElement("img")
         img.setAttribute("src", picture)
@@ -59,8 +67,9 @@ export default class Photographer {
         h4.textContent = this.tagline
         const h5 = document.createElement("h5")
         h5.textContent = this.price + "€/jour"
-        a.appendChild(img)
-        a.appendChild(h2)
+        link.appendChild(img)
+        link.appendChild(h2)
+        a.appendChild(link)
         a.appendChild(h3)
         a.appendChild(h4)
         a.appendChild(h5)

@@ -18,36 +18,25 @@
         <header>
             <img src="assets/images/logo.png" class="logo" alt="logo Fisheye" />
         </header>
-        <main id="main">
+        <main id="main" aria-hidden="false">
             <div class="photograph-header"></div>
             <form action="" id="selectMedias">
                 <label for="filterMedias">Trier par</label>
                 <select name="filter" id="filterMedias">
                     <option value="popularity">Popularité</option>
+                    <option disabled>__________</option>
                     <option value="date">Date</option>
+                    <option disabled>__________</option>
                     <option value="title">Titre</option>
                 </select>
+
+                </div>
             </form>
             <div class="photograph-medias"></div>
         </main>
-        <div id="contact_modal">
+        <div id="contact_modal" aria-hidden="true" role="dialog" aria-modal="true" tabindex="1">
             <div class="modal">
-                <header>
-                    <img
-                        src="assets/icons/close.svg"
-                        onclick="closeModal()"
-                        alt="icone croix"
-                    />
-                </header>
-                <form>
-                    <div>
-                        <label>Prénom</label>
-                        <input />
-                    </div>
-                    <button type="submit" class="contact_button">
-                        Envoyer
-                    </button>
-                </form>
+                
             </div>
         </div>
         <div class="lightbox">

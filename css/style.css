@@ -41,6 +41,12 @@ h1 {
     flex-direction: column;
     text-decoration: none;
 }
+.photographer-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .photographer_section a:link,
 .photographer_section a:visited {
     color: black;
@@ -96,12 +102,15 @@ h1 {
         width: 650px;
         height: 600px;
     }
+    .photograph-info {
+        max-width: 650px;
+    }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     .photographer_section {
-        display: flex;
-        flex-direction: column;
+        grid-template-columns: 1fr;
+        gap: 50px;
     }
 }
 
