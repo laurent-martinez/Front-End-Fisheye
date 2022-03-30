@@ -3,6 +3,7 @@
     <head>
         <link href="css/style.css" rel="stylesheet" type="text/css" />
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/png" href="assets/favicon.png" />
         <script
             src="https://kit.fontawesome.com/d34f04fd1d.js"
@@ -20,6 +21,7 @@
         </header>
         <main id="main" aria-hidden="false">
             <div class="photograph-header"></div>
+            <!--
             <form action="" id="selectMedias">
                 <label for="filterMedias">Trier par</label>
                 <select name="filter" id="filterMedias">
@@ -29,14 +31,100 @@
                     <option disabled>__________</option>
                     <option value="title">Titre</option>
                 </select>
-
-                </div>
             </form>
+            -->
+            <div id="selectMedias">
+                <h2>Trier par:</h2>
+                <div name="filter" id="filterMedias">
+                    <h3 class="selected-value">
+                        Popularité</i>
+                    </h3>
+                    <div id="options">
+                        <input
+                            type="radio"
+                            id="popularity"
+                            name="option"
+                            value="popularity"
+                        />
+                        <label for="popularity" class="options"
+                            >Popularité</label
+                        >
+                        <input
+                            type="radio"
+                            id="date"
+                            name="option"
+                            value="date"
+                        />
+                        <label for="date" class="options">Date</label>
+                        <input
+                            type="radio"
+                            id="title"
+                            name="option"
+                            value="title"
+                        />
+                        <label for="title" class="options">Titre</label>
+                    </div>
+                </div>
+            </div>
             <div class="photograph-medias"></div>
         </main>
-        <div id="contact_modal" aria-hidden="true" role="dialog" aria-modal="true" tabindex="1">
+        <div
+            id="contact_modal"
+            aria-hidden="true"
+            role="dialog"
+            aria-modal="true"
+            tabindex="1"
+        >
             <div class="modal">
-                
+                <header>
+                    <h2>Contactez-moi<br /></h2>
+                    <img
+                        src="assets/icons/close.svg"
+                        alt="icone croix"
+                        onclick="closeModal()"
+                        class="filter-white"
+                    />
+                </header>
+                <form class="contact-form">
+                    <div>
+                        <label>Prénom</label>
+                        <input
+                            type="text"
+                            tabindex="0"
+                            required
+                            id="first-name"
+                            name="first-name"
+                            pattern="^[A-Za-z-]+$"
+                            maxlength="15"
+                        />
+                    </div>
+                    <div>
+                        <label>Nom</label>
+                        <input
+                            type="text"
+                            tabindex="0"
+                            id="last-name"
+                            name="last-name"
+                            pattern="^[A-Za-z-]+$"
+                            maxlength="15"
+                        />
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <input type="email" id="email" name="email" />
+                    </div>
+                    <div>
+                        <label>Votre message</label>
+                        <textarea
+                            tabindex="0"
+                            id="message"
+                            maxlength="30"
+                        ></textarea>
+                    </div>
+                    <button type="submit" class="contact_button" tabindex="0">
+                        Envoyer
+                    </button>
+                </form>
             </div>
         </div>
         <div class="lightbox">

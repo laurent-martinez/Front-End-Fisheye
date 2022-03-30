@@ -20,7 +20,7 @@ async function getPhotographer(id) {
                 </div>
                 </div>
                 <div>
-                <button class="contact_button" onclick="displayModal()">
+                <button class="contact_button" onclick="displayModal()" id="contact_form-btn">
                     Contactez-moi
                     </button >
                     </div>
@@ -35,8 +35,11 @@ async function getPhotographer(id) {
                  
                 </footer>
                 `
-
                 photographerHeader.innerHTML = photographerHeaderHtml
+                const photographerName = document.querySelector(
+                    "#contact_modal > div > header > h2"
+                )
+                photographerName.innerHTML += photographer.name
             } else {
                 window.location.href = `index.html`
             }
@@ -64,7 +67,7 @@ async function getMedias(photographerId) {
             displayData(medias)
             mediaFilter(medias)
             likeInc(medias)
-            likeSum()
+            likeSum(medias)
         })
 }
 
@@ -89,8 +92,59 @@ function displayData(medias) {
             }
         })
     })
-    likeInc(medias)
 }
+
+const selected = document.querySelector(".selected-value")
+const Alloptions = document.querySelector("#options")
+const options = document.querySelectorAll(".options")
+
+selected.addEventListener("click", (e) => {
+    console.log(selected)
+    console.log(options)
+    selected.focus()
+    if (Alloptions.style.display === "none") {
+        selected.classList.add("rotate")
+        Alloptions.style.transform = "translateY(-69px)"
+        Alloptions.style.display = "flex"
+    } else {
+        Alloptions.style.transform = "none"
+        Alloptions.style.display = "none"
+        selected.classList.remove("rotate")
+    }
+})
+selected.addEventListener("keyup", (e) => {
+    console.log(selected)
+    console.log(options)
+    if (e.key === "Enter") {
+        if (Alloptions.style.display === "none") {
+            selected.classList.add("rotate")
+            Alloptions.style.display = "flex"
+        } else {
+            Alloptions.style.display = "none"
+            selected.classList.remove("rotate")
+        }
+    }
+})
+
+console.log(options)
+options.forEach((option) => {
+    option.addEventListener("click", (e) => {
+        let content = option.textContent
+        selected.textContent = content
+        Alloptions.style.display = "none"
+        selected.classList.remove("rotate")
+    })
+})
+
+options.forEach((option) => {
+    option.addEventListener("keyup", (e) => {
+        if (e.key === "Enter") {
+            let content = option.textContent
+            selected.textContent = content
+            Alloptions.style.display = "none"
+        }
+    })
+})
 
 function mediaFilter(medias) {
     const select = document.querySelector("#filterMedias")
@@ -116,6 +170,7 @@ function mediaFilter(medias) {
         const photographMedias = document.querySelector(".photograph-medias")
         photographMedias.innerHTML = ""
         displayData(medias)
+        likeInc(medias)
     })
 }
 
@@ -124,32 +179,24 @@ function likeInc(medias) {
 
     likeIcon.forEach((heart) => {
         heart.addEventListener("click", (e) => {
-            let likesNumber = parseInt(heart.previousElementSibling.textContent)
-            likesNumber++
-            heart.previousElementSibling.textContent = likesNumber
-            likeSum()
             const media = medias.find(
                 (media) => media.id == e.target.dataset.id
             )
             if (media) {
-                media.likes = likesNumber
-                console.log(media.likes)
+                media.likes++
+                heart.previousElementSibling.textContent = media.likes
             }
+
+            likeSum(medias)
         })
     })
 }
 
-function likeSum() {
-    const likeIcon = document.querySelectorAll(".heart")
+function likeSum(medias) {
     const likeCount = document.querySelector("#likeCount")
-    console.log(likeCount)
     let totalLikes = 0
-
-    likeIcon.forEach((heart) => {
-        const i = parseInt(heart.previousElementSibling.textContent)
-        totalLikes += i
+    medias.forEach((media) => {
+        totalLikes += media.likes
     })
-    if (likeCount) {
-        likeCount.textContent = totalLikes
-    }
+    likeCount.textContent = totalLikes
 }
