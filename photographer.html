@@ -37,66 +37,6 @@
                 </select>
             </label>
 
-            <!--
-            <div id="selectMedias">
-                <h2>Trier par:</h2>
-                <div name="filter" id="filterMedias">
-                    <h3
-                        class="selected-value"
-                        role="listbox"
-                        aria-label="trier les photos"
-                        tabindex="0"
-                    >
-                        Popularité
-                        <i class="fa-solid fa-angle-down"></i>
-                    </h3>
-                    <div id="options">
-                        <input
-                            type="radio"
-                            id="popularity"
-                            name="option"
-                            value="popularity"
-                        />
-                        <label
-                            for="popularity"
-                            role="option"
-                            aria-label="trier par popularité"
-                            tabindex="0"
-                            class="options"
-                            >Popularité</label
-                        >
-                        <input
-                            type="radio"
-                            id="date"
-                            name="option"
-                            value="date"
-                        />
-                        <label
-                            for="date"
-                            role="option"
-                            tabindex="0"
-                            aria-label="trier en fonction de la date"
-                            class="options"
-                            >Date</label
-                        >
-                        <input
-                            type="radio"
-                            id="title"
-                            name="option"
-                            value="title"
-                        />
-                        <label
-                            for="title"
-                            role="option"
-                            tabindex="0"
-                            aria-label="trier par ordre alphabétique"
-                            class="options"
-                            >Titre</label
-                        >
-                    </div>
-                </div>
-            </div>
-              -->
             <div class="photograph-medias"></div>
         </main>
         <div
@@ -118,12 +58,13 @@
                 </header>
                 <form class="contact-form">
                     <div>
-                        <label>Prénom</label>
+                        <label for="first-name">Prénom</label>
                         <input
                             type="text"
                             aria-label="entrer votre prénom"
                             tabindex="0"
                             required
+                            class="inputs"
                             id="first-name"
                             name="first-name"
                             pattern="^[A-Za-z-]+$"
@@ -131,33 +72,35 @@
                         />
                     </div>
                     <div>
-                        <label>Nom</label>
+                        <label for="last-name">Nom</label>
                         <input
                             type="text"
                             aria-label="entrer votre nom"
                             tabindex="0"
                             id="last-name"
+                            class="inputs"
                             name="last-name"
                             pattern="^[A-Za-z-]+$"
                             maxlength="15"
                         />
                     </div>
                     <div>
-                        <label>Email</label>
+                        <label for="email">Email</label>
                         <input
                             type="email"
                             aria-label="entrer votre email"
                             id="email"
                             name="email"
+                            class="inputs"
                         />
                     </div>
                     <div>
-                        <label>Votre message</label>
+                        <label for="message">Votre message</label>
                         <textarea
                             tabindex="0"
                             aria-label="entrer votre message"
                             id="message"
-                            maxlength="30"
+                            class="inputs"
                         ></textarea>
                     </div>
                     <button type="submit" class="contact_button" tabindex="0">

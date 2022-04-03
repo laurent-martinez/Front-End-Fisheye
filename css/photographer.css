@@ -328,17 +328,17 @@ input[type="radio"] {
 }
 .custom-selector .selector-options {
     list-style-type: none;
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     padding-left: 15px;
-    left: 35%;
-    top: -10px;
+    left: 34%;
+    top: -16px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     background-color: #901c1c;
     color: #fafafa;
-    width: 150px;
+    width: 155px;
     height: 180px;
     border-radius: 5px;
     font-size: 18px;
@@ -347,6 +347,7 @@ input[type="radio"] {
 .custom-selector .selector-option:nth-child(-n + 2) {
     cursor: pointer;
     border-bottom: 1px solid #fff;
+    width: 140px;
     padding-bottom: 15px;
 }
 .lightbox {
