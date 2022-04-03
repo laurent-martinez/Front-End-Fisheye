@@ -69,7 +69,17 @@ class Lightbox {
     }
 
     display() {
+        const gallery = document.querySelector("#main > div.photograph-medias")
+        gallery.style.display = "none"
+        const logo = document.querySelector("body > header > a")
+        logo.style.display = "none"
+        const contactButton = document.querySelector("#contact_form-btn")
+        contactButton.style.display = "none"
+        /*
+        const sort = document.querySelector("#filterMedias > h3")
+        sort.style.display = "none"*/
         const container = document.querySelector(".lightbox__container")
+        container.setAttribute("aria-hidden", "false")
         const containerModel = MediaFactory(this.currentMedia)
         const containerDom = containerModel.getLightboxDom()
         container.innerHTML = containerDom
@@ -77,6 +87,17 @@ class Lightbox {
     }
 
     close() {
+        const gallery = document.querySelector("#main > div.photograph-medias")
+        gallery.style.display = "flex"
+        const logo = document.querySelector("body > header > a")
+        logo.style.display = "unset"
+        const contactButton = document.querySelector("#contact_form-btn")
+        contactButton.style.display = "unset"
+        /*
+        const sort = document.querySelector("#filterMedias > h3")
+        sort.style.display = "flex"*/
+        const container = document.querySelector(".lightbox__container")
+        container.setAttribute("aria-hidden", "true")
         document.querySelector(".lightbox").classList.remove("show")
     }
 }

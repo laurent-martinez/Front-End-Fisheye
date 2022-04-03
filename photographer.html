@@ -17,27 +17,38 @@
     </head>
     <body>
         <header>
-            <img src="assets/images/logo.png" class="logo" alt="logo Fisheye" />
+            <a href="/index.html">
+                <img
+                    src="assets/images/logo.png"
+                    aria-label="retour vers la page d'accueil"
+                    class="logo"
+                    alt="logo Fisheye"
+            /></a>
         </header>
         <main id="main" aria-hidden="false">
             <div class="photograph-header"></div>
-            <!--
-            <form action="" id="selectMedias">
-                <label for="filterMedias">Trier par</label>
+
+            <label for="filterMedias" class="custom-selector"
+                >Trier par
                 <select name="filter" id="filterMedias">
                     <option value="popularity">Popularité</option>
-                    <option disabled>__________</option>
                     <option value="date">Date</option>
-                    <option disabled>__________</option>
                     <option value="title">Titre</option>
                 </select>
-            </form>
-            -->
+            </label>
+
+            <!--
             <div id="selectMedias">
                 <h2>Trier par:</h2>
                 <div name="filter" id="filterMedias">
-                    <h3 class="selected-value">
-                        Popularité</i>
+                    <h3
+                        class="selected-value"
+                        role="listbox"
+                        aria-label="trier les photos"
+                        tabindex="0"
+                    >
+                        Popularité
+                        <i class="fa-solid fa-angle-down"></i>
                     </h3>
                     <div id="options">
                         <input
@@ -46,7 +57,12 @@
                             name="option"
                             value="popularity"
                         />
-                        <label for="popularity" class="options"
+                        <label
+                            for="popularity"
+                            role="option"
+                            aria-label="trier par popularité"
+                            tabindex="0"
+                            class="options"
                             >Popularité</label
                         >
                         <input
@@ -55,17 +71,32 @@
                             name="option"
                             value="date"
                         />
-                        <label for="date" class="options">Date</label>
+                        <label
+                            for="date"
+                            role="option"
+                            tabindex="0"
+                            aria-label="trier en fonction de la date"
+                            class="options"
+                            >Date</label
+                        >
                         <input
                             type="radio"
                             id="title"
                             name="option"
                             value="title"
                         />
-                        <label for="title" class="options">Titre</label>
+                        <label
+                            for="title"
+                            role="option"
+                            tabindex="0"
+                            aria-label="trier par ordre alphabétique"
+                            class="options"
+                            >Titre</label
+                        >
                     </div>
                 </div>
             </div>
+              -->
             <div class="photograph-medias"></div>
         </main>
         <div
@@ -90,6 +121,7 @@
                         <label>Prénom</label>
                         <input
                             type="text"
+                            aria-label="entrer votre prénom"
                             tabindex="0"
                             required
                             id="first-name"
@@ -102,6 +134,7 @@
                         <label>Nom</label>
                         <input
                             type="text"
+                            aria-label="entrer votre nom"
                             tabindex="0"
                             id="last-name"
                             name="last-name"
@@ -111,12 +144,18 @@
                     </div>
                     <div>
                         <label>Email</label>
-                        <input type="email" id="email" name="email" />
+                        <input
+                            type="email"
+                            aria-label="entrer votre email"
+                            id="email"
+                            name="email"
+                        />
                     </div>
                     <div>
                         <label>Votre message</label>
                         <textarea
                             tabindex="0"
+                            aria-label="entrer votre message"
                             id="message"
                             maxlength="30"
                         ></textarea>
@@ -128,10 +167,22 @@
             </div>
         </div>
         <div class="lightbox">
-            <button class="lightbox__close"></button>
-            <button class="lightbox__next"></button>
-            <button class="lightbox__prev"></button>
-            <div class="lightbox__container"></div>
+            <button
+                aria-label="photo suivante touche directionelle droite"
+                tabindex="1"
+                class="lightbox__next"
+            ></button>
+            <button
+                aria-label="photo précédente touche directionelle gauche"
+                tabindex="1"
+                class="lightbox__prev"
+            ></button>
+            <div class="lightbox__container" role="dialog"></div>
+            <button
+                aria-label="pour fermer la lightbox appuyer sur échap"
+                tabindex="1"
+                class="lightbox__close"
+            ></button>
         </div>
         <script src="/scripts/utils/contactForm.js"></script>
         <script src="/scripts/factories/MediasFactory.js"></script>

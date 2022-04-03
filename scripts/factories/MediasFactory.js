@@ -28,6 +28,7 @@ class Videos extends Media {
         video.classList.add("mediaLink")
         video.setAttribute("tabindex", "0")
         video.setAttribute("data-id", this.id)
+        video.setAttribute("aria-label", `${this.title}`)
         source.setAttribute("src", videos)
         source.setAttribute("type", "video/mp4")
         track.setAttribute("src", "assets/captions/Sport_Tricks_in_the_air.vtt")
@@ -45,6 +46,7 @@ class Videos extends Media {
         const heart = document.createElement("button")
         heart.setAttribute("class", "heart")
         heart.setAttribute("data-id", this.id)
+        heart.setAttribute("aria-label", "liker le média")
         a.appendChild(video)
         video.appendChild(source)
         video.appendChild(track)
@@ -60,7 +62,7 @@ class Videos extends Media {
     getLightboxDom() {
         return ` <video controls id="imgBox" src="assets/photographers/${this.video}" 
         aria-label="${this.title}"/>
-        <p class="titleCurrentImg" tabindex="0" aria-label="titre du média">${this.title}</p>`
+        <p class="titleCurrentImg" tabindex="0" aria-label=${this.title}>${this.title}</p>`
     }
 }
 
@@ -79,6 +81,7 @@ class Images extends Media {
         image.setAttribute("src", images)
         image.classList.add("mediaLink")
         image.setAttribute("data-id", this.id)
+        image.setAttribute("aria-label", `${this.title}`)
         const info = document.createElement("div")
         info.classList.add("photograph-info")
         const h2 = document.createElement("h2")
@@ -91,6 +94,7 @@ class Images extends Media {
         const heart = document.createElement("button")
         heart.setAttribute("class", "heart")
         heart.setAttribute("data-id", this.id)
+        heart.setAttribute("aria-label", "liker le média")
 
         a.appendChild(image)
         a.appendChild(info)
@@ -105,7 +109,7 @@ class Images extends Media {
         return `
         <img id="imgBox" src="assets/photographers/${this.image}" 
         aria-label="${this.title}"/>
-        <p class="titleCurrentImg" tabindex="0" aria-label="titre du média">${this.title}</p>`
+        <p class="titleCurrentImg" tabindex="0" aria-label=${this.title}>${this.title}</p>`
     }
 }
 
