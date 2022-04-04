@@ -17,10 +17,10 @@
     </head>
     <body>
         <header>
-            <a href="/index.html">
+            <a href="/index.html" class="link-logo">
                 <img
                     src="assets/images/logo.png"
-                    aria-label="retour vers la page d'accueil"
+                    aria-label="return to homepage"
                     class="logo"
                     alt="logo Fisheye"
             /></a>
@@ -30,10 +30,16 @@
 
             <label for="filterMedias" class="custom-selector"
                 >Trier par
-                <select name="filter" id="filterMedias">
-                    <option value="popularity">Popularité</option>
-                    <option value="date">Date</option>
-                    <option value="title">Titre</option>
+                <select
+                    name="filter"
+                    id="filterMedias"
+                    aria-label="order medias by"
+                >
+                    <option aria-label="popularity" value="popularity">
+                        Popularité
+                    </option>
+                    <option aria-label="date" value="date">Date</option>
+                    <option aria-label="title" value="title">Titre</option>
                 </select>
             </label>
 
@@ -61,7 +67,7 @@
                         <label for="first-name">Prénom</label>
                         <input
                             type="text"
-                            aria-label="entrer votre prénom"
+                            aria-label="enter your first-name"
                             tabindex="0"
                             required
                             class="inputs"
@@ -75,7 +81,7 @@
                         <label for="last-name">Nom</label>
                         <input
                             type="text"
-                            aria-label="entrer votre nom"
+                            aria-label="enter your name"
                             tabindex="0"
                             id="last-name"
                             required
@@ -89,7 +95,7 @@
                         <label for="email">Email</label>
                         <input
                             type="email"
-                            aria-label="entrer votre email"
+                            aria-label="enter your mail"
                             id="email"
                             name="email"
                             required
@@ -100,13 +106,18 @@
                         <label for="message">Votre message</label>
                         <textarea
                             tabindex="0"
-                            aria-label="entrer votre message"
+                            aria-label="enter your message"
                             id="message"
                             required
                             class="inputs"
                         ></textarea>
                     </div>
-                    <button type="submit" class="contact_button" tabindex="0">
+                    <button
+                        type="submit"
+                        class="contact_button"
+                        aria-label="send your message"
+                        tabindex="0"
+                    >
                         Envoyer
                     </button>
                 </form>
@@ -114,25 +125,31 @@
         </div>
         <div class="lightbox">
             <button
-                aria-label="photo suivante touche directionelle droite"
+                aria-label="next media arrow right"
                 tabindex="1"
                 class="lightbox__next"
             ></button>
             <button
-                aria-label="photo précédente touche directionelle gauche"
+                aria-label="previous media arrow left"
                 tabindex="1"
                 class="lightbox__prev"
             ></button>
-            <div class="lightbox__container" role="dialog"></div>
+            <div
+                class="lightbox__container"
+                role="dialog"
+                aria-label="image closeup view"
+            ></div>
             <button
-                aria-label="pour fermer la lightbox appuyer sur échap"
+                aria-label="close dialog"
                 tabindex="1"
                 class="lightbox__close"
             ></button>
         </div>
-        <script src="/scripts/utils/contactForm.js"></script>
         <script src="/scripts/factories/MediasFactory.js"></script>
-        <script src="/scripts/pages/photographer.js"></script>
         <script src="/scripts/utils/lightbox.js"></script>
+        <script src="/scripts/pages/photographer.js"></script>
+        <script src="/scripts/utils/likes.js"></script>
+        <script src="/scripts/utils/contactForm.js"></script>
+        <script src="/scripts/utils/filter.js"></script>
     </body>
 </html>

@@ -1,4 +1,5 @@
 class Media {
+    // create a class for all medias
     constructor(data) {
         this.id = data.id
         this.photographerId = data.photographerId
@@ -8,6 +9,7 @@ class Media {
         this.date = data.date
         this.media = data.media
     }
+    // a method for the gallery & for the lightbox
     getMediaCardDom() {}
     getLightboxDom() {}
 }
@@ -19,24 +21,22 @@ class Videos extends Media {
     }
 
     getMediaCardDom() {
-        // Création d'un nouvel élément a dans la page
+        // create the a tag
         const a = document.createElement("a")
         const videos = `assets/photographers/${this.video}`
         const video = document.createElement("video")
         const source = document.createElement("source")
-        const track = document.createElement("track")
+        // set multiples attributes for video
         video.classList.add("mediaLink")
         video.setAttribute("tabindex", "0")
         video.setAttribute("data-id", this.id)
-        video.setAttribute("aria-label", `${this.title}`)
+        video.setAttribute("aria-label", `${this.title}, closeup view`)
         source.setAttribute("src", videos)
         source.setAttribute("type", "video/mp4")
-        track.setAttribute("src", "assets/captions/Sport_Tricks_in_the_air.vtt")
-        track.setAttribute("kind", "captions")
-        track.setAttribute("srclang", "en")
         const info = document.createElement("div")
         info.setAttribute("class", "photograph-info")
         const h2 = document.createElement("h2")
+        // use textContent to fill the h2
         h2.textContent = this.title
         const likes = document.createElement("div")
         likes.setAttribute("class", "photograph-likes")
@@ -47,9 +47,9 @@ class Videos extends Media {
         heart.setAttribute("class", "heart")
         heart.setAttribute("data-id", this.id)
         heart.setAttribute("aria-label", "liker le média")
+        // inject in the Dom
         a.appendChild(video)
         video.appendChild(source)
-        video.appendChild(track)
         a.appendChild(info)
         info.appendChild(h2)
         info.appendChild(likes)
@@ -81,7 +81,7 @@ class Images extends Media {
         image.setAttribute("src", images)
         image.classList.add("mediaLink")
         image.setAttribute("data-id", this.id)
-        image.setAttribute("aria-label", `${this.title}`)
+        image.setAttribute("aria-label", `${this.title}, closeup view`)
         const info = document.createElement("div")
         info.classList.add("photograph-info")
         const h2 = document.createElement("h2")
@@ -96,9 +96,8 @@ class Images extends Media {
         heart.setAttribute("data-id", this.id)
         heart.setAttribute(
             "aria-label",
-            `${this.likes}personnes ont aimé ce média,appuyer pour liker`
+            `${this.likes} people like this media, press enter to like`
         )
-
         a.appendChild(image)
         a.appendChild(info)
         info.appendChild(h2)
@@ -108,6 +107,7 @@ class Images extends Media {
 
         return a
     }
+    // display the media in the lightbox & his title
     getLightboxDom() {
         return `
         <img id="imgBox" src="assets/photographers/${this.image}" 

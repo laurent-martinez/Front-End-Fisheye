@@ -1,3 +1,4 @@
+/**************** photographer header ********************************************************************/
 .photograph-header {
     background-color: #fafafa;
     height: 300px;
@@ -49,6 +50,7 @@
     background-color: #db8876;
     color: black;
 }
+/********** contact form **************************************************************************/
 #contact_modal {
     display: none;
     position: absolute;
@@ -142,9 +144,11 @@ form textarea {
     height: 204px;
     width: 100%;
     border: none;
+    font-size: 22px;
     border-radius: 5px;
     padding: 5px;
 }
+/************************* photographer gallery *************************************************/
 
 .photograph-medias {
     display: flex;
@@ -203,109 +207,8 @@ form textarea {
     align-self: center;
     cursor: pointer;
 }
-/*
-input[type="radio"] {
-    display: none;
-}
-#selectMedias {
-    margin: 25px 100px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color: #fafafa;
-    font-size: 18px;
-    font-weight: 700;
-}
+/************ custom select ******************************************************************/
 
-#selectMedias option {
-    color: white;
-}
-
-.selected-value {
-    width: 170px;
-    height: 69px;
-    background-color: #901c1c;
-    color: #fafafa;
-    font-size: 18px;
-    font-weight: 700;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    padding-left: 15px;
-    position: relative;
-}
-.options:nth-child(-n + 4) {
-    border-bottom: 1px solid #fff;
-    width: 95%;
-    padding-bottom: 15px;
-}
-.selected-value::after {
-    content: "";
-    position: absolute;
-    right: 20px;
-    top: 25px;
-    z-index: 2;
-    width: 20px;
-    height: 20px;
-    background: url(/assets/icons/arrow-down.svg) center center no-repeat;
-    transition: 0.2s;
-}
-#selectMedias h2 {
-    margin-right: 25px;
-    font-size: 24px;
-    font-weight: 700;
-    cursor: pointer;
-    white-space: nowrap;
-    color: #312e2e;
-}
-
-#selectMedias select {
-    background: #901c1c
-        url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='20' height='20' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='white'/></g></svg>")
-        no-repeat;
-    background-position: right 5px top 50%;
-    color: #fafafa;
-    font-size: 18px;
-    font-weight: 700;
-    width: 170px;
-    height: 69px;
-    padding: 1em;
-    margin: 10px;
-    border-radius: 5px;
-    border: 0;
-    border: none;
-    outline: none;
-    display: inline-block;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    cursor: pointer;
-}
-
-#options {
-    width: 170px;
-    height: 170px;
-    background: #901c1c;
-    color: white;
-    border-radius: 5px;
-    z-index: 999;
-    display: none;
-    flex-direction: column;
-    justify-content: space-around;
-    padding-left: 15px;
-    transform: none;
-}
-#options label {
-    cursor: pointer;
-}
-#options label:hover {
-    opacity: 0.7;
-}
-.rotate::after {
-    transform: rotate(180deg);
-    top: 30px;
-}
-*/
 .custom-selector {
     position: relative;
     display: inline-block;
@@ -363,6 +266,8 @@ input[type="radio"] {
     width: 140px;
     padding-bottom: 15px;
 }
+
+/****************** lightbox ************************************************************/
 .lightbox {
     display: none;
     position: fixed;
@@ -446,6 +351,8 @@ input[type="radio"] {
     display: flex;
     align-self: baseline;
 }
+/************************************** footer *************************************************/
+
 footer {
     position: fixed;
     bottom: 0;
@@ -454,9 +361,10 @@ footer {
     width: 376px;
     background-color: #db8876;
     font-size: 24px;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
     padding: 10px;
     display: flex;
+    z-index: 15;
     justify-content: space-around;
     align-items: center;
     font-weight: 500;

@@ -20,7 +20,7 @@ h1 {
     color: #901c1c;
     margin-right: 100px;
 }
-
+/***** homepage photographer presentation ******************************************/
 .logo {
     height: 50px;
     margin-left: 100px;
@@ -67,21 +67,15 @@ h1 {
 }
 
 .photographer_section a img {
-    height: 250px;
-    width: 250px;
+    height: 230px;
+    width: 230px;
     object-fit: cover;
     border-radius: 50%;
     cursor: pointer;
     transition: 0.8s;
 }
 .photographer_section a img:hover {
-    height: 200px;
-    width: 200px;
-    object-fit: cover;
-    border-radius: 50%;
     transform: scale(1.1);
-    opacity: 0.8;
-    cursor: pointer;
 }
 .photographer_section a h4 {
     color: black;
@@ -97,6 +91,8 @@ h1 {
     color: #757575;
     margin-top: 5px;
 }
+
+/****************** media queries for both pages ***************************************************/
 
 @media only screen and (min-width: 769px) and (max-width: 1026px) {
     .photographer_section {
@@ -142,7 +138,7 @@ h1 {
         transform: none;
     }
     h1 {
-        margin-right: 0;
+        margin-right: 50px;
     }
 }
 @media all and (max-width: 692px) {

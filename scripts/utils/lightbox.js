@@ -6,15 +6,18 @@ class Lightbox {
     }
 
     show(id) {
+        // get the id & show the media
         this.currentMedia = this.getId(id)
         this.display()
     }
 
     next() {
+        // get the index & use it for going to next media
         const index = this.mediasArray.findIndex(
             (element) => element.id == this.currentMedia.id
         )
         if (index == this.mediasArray.length - 1) {
+            // when it's the last media going back to the first one
             this.currentMedia = this.mediasArray[0]
         } else {
             this.currentMedia = this.mediasArray[index + 1]
@@ -35,6 +38,7 @@ class Lightbox {
     }
 
     manageEvent() {
+        // add addEvent Listener to browse the lightbox through click or keys
         const nextImg = document.querySelector(".lightbox__next")
         nextImg.addEventListener("click", () => {
             this.next()
@@ -69,35 +73,46 @@ class Lightbox {
     }
 
     display() {
+        // Dom
         const gallery = document.querySelector("#main > div.photograph-medias")
-        gallery.style.display = "none"
         const logo = document.querySelector("body > header > a")
-        logo.style.display = "none"
         const contactButton = document.querySelector("#contact_form-btn")
-        contactButton.style.display = "none"
-        /*
-        const sort = document.querySelector("#filterMedias > h3")
-        sort.style.display = "none"*/
+        const sort = document.querySelector("select")
+        const footer = document.querySelector("footer")
         const container = document.querySelector(".lightbox__container")
+        // display none to focus on the lightbox
+        gallery.style.display = "none"
+        logo.style.display = "none"
+        contactButton.style.display = "none"
+        sort.style.display = "none"
+        footer.style.display = "none"
         container.setAttribute("aria-hidden", "false")
+        // instance the MediaFactory class with a specific media
         const containerModel = MediaFactory(this.currentMedia)
+        // use the getter including the Dom
         const containerDom = containerModel.getLightboxDom()
+        // inject it in the Dom
         container.innerHTML = containerDom
+        // add the class show to display the lightbox
         document.querySelector(".lightbox").classList.add("show")
     }
 
     close() {
+        // Dom
         const gallery = document.querySelector("#main > div.photograph-medias")
-        gallery.style.display = "flex"
         const logo = document.querySelector("body > header > a")
-        logo.style.display = "unset"
         const contactButton = document.querySelector("#contact_form-btn")
-        contactButton.style.display = "unset"
-        /*
-        const sort = document.querySelector("#filterMedias > h3")
-        sort.style.display = "flex"*/
+        const sort = document.querySelector("select")
+        const footer = document.querySelector("footer")
         const container = document.querySelector(".lightbox__container")
+        // display again all the element
+        gallery.style.display = "flex"
+        logo.style.display = "unset"
+        contactButton.style.display = "unset"
+        sort.style.display = "inline-block"
+        footer.style.display = "flex"
         container.setAttribute("aria-hidden", "true")
+        // remove the class show to hide the lightbox
         document.querySelector(".lightbox").classList.remove("show")
     }
 }
