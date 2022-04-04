@@ -27,7 +27,7 @@ export default class Photographer {
         })
         // Création de chaque élément qui récupère les données de  chaque photographe
 
-        const picture = `../assets/photographers/${this.portrait}`
+        const picture = `./assets/photographers/${this.portrait}`
         const img = document.createElement("img")
         img.setAttribute("src", picture)
         img.setAttribute("alt", this.name)
