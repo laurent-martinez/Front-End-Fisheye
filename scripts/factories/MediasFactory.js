@@ -29,6 +29,7 @@ class Videos extends Media {
         // set multiples attributes for video
         video.classList.add("mediaLink")
         video.setAttribute("tabindex", "0")
+        video.setAttribute("alt", this.title)
         video.setAttribute("data-id", this.id)
         video.setAttribute("aria-label", `${this.title}, closeup view`)
         source.setAttribute("src", videos)
@@ -79,6 +80,7 @@ class Images extends Media {
         const image = document.createElement("img")
         image.setAttribute("tabindex", "0")
         image.setAttribute("src", images)
+        image.setAttribute("alt", this.title)
         image.classList.add("mediaLink")
         image.setAttribute("data-id", this.id)
         image.setAttribute("aria-label", `${this.title}, closeup view`)
