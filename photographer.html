@@ -47,16 +47,16 @@
             tabindex="1"
         >
             <div class="modal">
-                <header>
-                    <h2>Contactez-moi<br /></h2>
-                    <img
-                        src="assets/icons/close.svg"
-                        alt="icone croix"
-                        onclick="closeModal()"
-                        class="filter-white"
-                    />
-                </header>
                 <form class="contact-form">
+                    <header>
+                        <h2>Contactez-moi<br /></h2>
+                        <img
+                            src="assets/icons/close.svg"
+                            alt="icone croix"
+                            onclick="closeModal()"
+                            class="filter-white"
+                        />
+                    </header>
                     <div>
                         <label for="first-name">Prénom</label>
                         <input
@@ -78,6 +78,7 @@
                             aria-label="entrer votre nom"
                             tabindex="0"
                             id="last-name"
+                            required
                             class="inputs"
                             name="last-name"
                             pattern="^[A-Za-z-]+$"
@@ -91,6 +92,7 @@
                             aria-label="entrer votre email"
                             id="email"
                             name="email"
+                            required
                             class="inputs"
                         />
                     </div>
@@ -100,6 +102,7 @@
                             tabindex="0"
                             aria-label="entrer votre message"
                             id="message"
+                            required
                             class="inputs"
                         ></textarea>
                     </div>

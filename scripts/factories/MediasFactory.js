@@ -62,7 +62,7 @@ class Videos extends Media {
     getLightboxDom() {
         return ` <video controls id="imgBox" src="assets/photographers/${this.video}" 
         aria-label="${this.title}"/>
-        <p class="titleCurrentImg" tabindex="0" aria-label=${this.title}>${this.title}</p>`
+        <p class="titleCurrentImg" tabindex="1" aria-label=${this.title}>${this.title}</p>`
     }
 }
 
@@ -94,7 +94,10 @@ class Images extends Media {
         const heart = document.createElement("button")
         heart.setAttribute("class", "heart")
         heart.setAttribute("data-id", this.id)
-        heart.setAttribute("aria-label", "liker le média")
+        heart.setAttribute(
+            "aria-label",
+            `${this.likes}personnes ont aimé ce média,appuyer pour liker`
+        )
 
         a.appendChild(image)
         a.appendChild(info)
@@ -109,7 +112,7 @@ class Images extends Media {
         return `
         <img id="imgBox" src="assets/photographers/${this.image}" 
         aria-label="${this.title}"/>
-        <p class="titleCurrentImg" tabindex="0" aria-label=${this.title}>${this.title}</p>`
+        <p class="titleCurrentImg" tabindex="1" aria-label=${this.title}>${this.title}</p>`
     }
 }
 

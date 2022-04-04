@@ -30,7 +30,7 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
-    margin-top: 100px;
+    margin: 100px 0;
 }
 
 .photographer_section a {
@@ -53,19 +53,22 @@ h1 {
 }
 .photographer_section a h2 {
     color: #d3573c;
-    font-size: 34px;
+    font-size: 36px;
     margin-top: 5px;
     margin-bottom: 0;
+    font-weight: 400;
+    line-height: 46.93px;
 }
 .photographer_section a h3 {
     color: #901c1c;
     margin: 0;
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 16.93px;
 }
 
 .photographer_section a img {
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 250px;
     object-fit: cover;
     border-radius: 50%;
     cursor: pointer;
@@ -83,12 +86,16 @@ h1 {
 .photographer_section a h4 {
     color: black;
     margin: 0;
-    font-size: 16px;
+    font-size: 13px;
+    line-height: 13.02px;
+    margin-top: 3px;
 }
 .photographer_section a h5 {
-    font-style: italic;
     margin: 0;
-    font-size: 14px;
+    font-size: 12px;
+    line-height: 11.72px;
+    color: #757575;
+    margin-top: 5px;
 }
 
 @media only screen and (min-width: 769px) and (max-width: 1026px) {

@@ -22,11 +22,11 @@ async function getPhotographer(id) {
                 <div>
                 <button class="contact_button" aria-label="bouton de contact du photographe" onclick="displayModal()" id="contact_form-btn">
                     Contactez-moi
-                    </button >
+                    </button>
                     </div>
                     <div>
                     <img id="photographer--pic"src="assets/photographers/${photographer.portrait}" alt=""></div>
-                    <footer>
+                    <footer tabindex="-1" aria-label="ce photographe travaille pour ${photographer.price}euros par jour">
                  <div>
                         <span id="likeCount">0</span>
                         <i class="fas fa-heart"></i>
@@ -37,7 +37,7 @@ async function getPhotographer(id) {
                 `
                 photographerHeader.innerHTML = photographerHeaderHtml
                 const photographerName = document.querySelector(
-                    "#contact_modal > div > header > h2"
+                    "#contact_modal > div > form > header > h2"
                 )
                 photographerName.innerHTML += photographer.name
             } else {
@@ -95,54 +95,7 @@ function displayData(medias) {
         })
     })
 }
-/*
-const selected = document.querySelector(".selected-value")
-const Alloptions = document.querySelector("#options")
-const options = document.querySelectorAll(".options")
 
-selected.addEventListener("click", (e) => {
-    selected.focus()
-    if (Alloptions.style.display === "none") {
-        selected.classList.add("rotate")
-        Alloptions.style.transform = "translateY(-69px)"
-        Alloptions.style.display = "flex"
-    } else {
-        Alloptions.style.transform = "none"
-        Alloptions.style.display = "none"
-        selected.classList.remove("rotate")
-    }
-})
-document.addEventListener("keyup", (e) => {
-    selected.focus()
-    if (e.key === "Enter") {
-        if (Alloptions.style.display === "none") {
-            selected.classList.add("rotate")
-            Alloptions.style.transform = "translateY(-69px)"
-            Alloptions.style.display = "flex"
-        } else {
-            Alloptions.style.display = "none"
-            selected.classList.remove("rotate")
-            Alloptions.style.transform = "none"
-        }
-    }
-})
-
-console.log(options)
-options.forEach((option) => {
-    option.addEventListener("click", (e) => {
-        let content = option.textContent
-        selected.textContent = content
-        Alloptions.style.display = "none"
-    })
-    document.addEventListener("keyup", (e) => {
-        if (e.key === "Enter") {
-            let content = option.textContent
-            selected.textContent = content
-            Alloptions.style.display = "none"
-        }
-    })
-})
-*/
 const selector = document.querySelector(".custom-selector")
 selector.addEventListener("change", (e) => {
     console.log("changed", e.target.value)
@@ -170,6 +123,12 @@ selector.addEventListener("mousedown", (e) => {
     })
 
     selector.appendChild(dropdown)
+    //handle click out
+    document.addEventListener("click", (e) => {
+        if (!selector.contains(e.target)) {
+            dropdown.remove()
+        }
+    })
 })
 
 function mediaFilter(medias) {

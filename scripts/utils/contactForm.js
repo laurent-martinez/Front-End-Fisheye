@@ -5,8 +5,9 @@ const main = document.getElementById("main")
 const modal = document.getElementById("contact_modal")
 const modalContent = document.querySelector(".modal")
 const modalCloseBtn = document.querySelector(
-    "#contact_modal > div > header > img"
+    "#contact_modal > div > form > header > img"
 )
+
 const firstInput = document.querySelector("#first-name")
 const openModalBtn = document.querySelector("#contact_form-btn")
 const send = document.querySelector("#contact_modal > div > form")
