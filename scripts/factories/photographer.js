@@ -30,6 +30,7 @@ export default class Photographer {
         const picture = `../assets/photographers/${this.portrait}`
         const img = document.createElement("img")
         img.setAttribute("src", picture)
+        img.setAttribute("alt", this.name)
         const h2 = document.createElement("h2")
         h2.textContent = this.name
         const h3 = document.createElement("h3")
