@@ -219,7 +219,7 @@ form textarea {
 .custom-selector::after {
     content: "";
     position: absolute;
-    background: url(/Front-End-Fisheye/assets/icons/arrow-down.svg) center
+    background: url("/Front-End-Fisheye/assets/icons/arrow-down.svg") center
         center no-repeat;
     top: 25px;
     right: 10px;
@@ -289,7 +289,8 @@ form textarea {
     border: none;
     position: fixed;
     top: 50%;
-    background: url(/assets/icons/arrow.svg) center center no-repeat;
+    background: url("/Front-End-Fisheye/assets/icons/arrow.svg") center center
+        no-repeat;
     width: 48px;
     height: 38px;
     margin-top: -14px;
