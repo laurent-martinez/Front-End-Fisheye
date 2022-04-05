@@ -200,8 +200,7 @@ form textarea {
     margin-right: 10px;
 }
 .heart {
-    background: url(/Front-End-Fisheye/assets/icons/heart.svg) center center /
-        100% 100%;
+    background: url(cassets/icons/heart.svg) center center / 100% 100%;
     border: none;
     width: 24px;
     height: 35px;
@@ -220,7 +219,8 @@ form textarea {
 .custom-selector::after {
     content: "";
     position: absolute;
-    background: url(/assets/icons/arrow-down.svg) center center no-repeat;
+    background: url(/Front-End-Fisheye/assets/icons/arrow-down.svg) center
+        center no-repeat;
     top: 25px;
     right: 10px;
     width: 20px;
