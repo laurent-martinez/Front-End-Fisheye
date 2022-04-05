@@ -200,7 +200,8 @@ form textarea {
     margin-right: 10px;
 }
 .heart {
-    background: url(cassets/icons/heart.svg) center center / 100% 100%;
+    background: url("/Front-End-Fisheye/assets/icons/heart.svg") center center /
+        100% 100%;
     border: none;
     width: 24px;
     height: 35px;
@@ -316,7 +317,8 @@ form textarea {
     right: 50px;
     width: 54px;
     height: 54px;
-    background: url(/assets/icons/close.svg) center center no-repeat;
+    background: url("/Front-End-Fisheye/assets/icons/close.svg") center center
+        no-repeat;
     border: none;
     text-indent: -3000px;
     cursor: pointer;
