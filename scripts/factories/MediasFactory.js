@@ -94,7 +94,9 @@ class Images extends Media {
         likesNumber.textContent = this.likes
         likesNumber.setAttribute("class", "likesNumberin")
         const heart = document.createElement("button")
-        heart.setAttribute("class", "heart")
+        const heartContent = document.createElement("i")
+        heartContent.classList.add("fas fa-heart")
+        //heart.classList.add("heart")
         heart.setAttribute("data-id", this.id)
         heart.setAttribute(
             "aria-label",
