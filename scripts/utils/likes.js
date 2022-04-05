@@ -15,6 +15,7 @@ function likeInc(medias) {
                 media.likes++
                 heart.previousElementSibling.textContent = media.likes
             }
+
             // call the function to increment as well in totalLikes
             likeSum(medias)
         })
