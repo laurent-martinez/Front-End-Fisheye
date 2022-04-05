@@ -200,7 +200,7 @@ form textarea {
     margin-right: 10px;
 }
 .heart {
-    background: url(./assets/icons/heart.svg) center center / 100% 100%;
+    background: url(../assets/icons/heart.svg) center center / 100% 100%;
     border: none;
     width: 24px;
     height: 35px;
