@@ -201,7 +201,7 @@ form textarea {
 }
 .heart {
     background: url("/Front-End-Fisheye/assets/icons/heart.svg") center center /
-        100% 100%;
+        no-repeat;
     border: none;
     width: 24px;
     height: 35px;
